@@ -1,0 +1,88 @@
+{
+  "palette": [
+    {
+      "id": "TqW5-Rwbz1t7pLkvO4UIC",
+      "name": "assets",
+      "value": "#9955dd"
+    },
+    {
+      "id": "4c2YUNvcUclqEg7Y3bde6",
+      "name": "Cheat shetts",
+      "value": "#e10e9f"
+    },
+    {
+      "id": "OZ8CxAbztMqn5Z5RhwR8O",
+      "name": "information",
+      "value": "#00d15b"
+    },
+    {
+      "id": "MU7VYS6-zHmrz5_RBWDU6",
+      "name": "writeups",
+      "value": "#f0d105"
+    },
+    {
+      "id": "K54v7dcCzaVDj1N_v3X5s",
+      "name": "Offensive",
+      "value": "#c21414"
+    },
+    {
+      "id": "FeRuaebXGnS3EJVO2qIlM",
+      "name": "Defensive",
+      "value": "#0026bd"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "Academy/assets",
+      "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    },
+    {
+      "path": "Academy/Introduction.md",
+      "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    },
+    {
+      "path": "Academy/Getting started.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/nmap ( Network mapper ).md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Network/Generale notes.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Enumeration notes/Password attempts.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/Cheat sheets/nmap.md",
+      "color": "4c2YUNvcUclqEg7Y3bde6"
+    },
+    {
+      "path": "Academy/Footprinting.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Boxes/Assets",
+      "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    },
+    {
+      "path": "Academy/Information Gathering.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Vulnerability Assessment.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/File transfers.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy",
+      "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    }
+  ]
+}
