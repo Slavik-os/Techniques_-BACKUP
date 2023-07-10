@@ -1,6 +1,7 @@
 - Standar ports  between 0-1023 , well known or #SystemPorts (65,535 in Total) .
 
 # Commen ports
+
 | PORT(S)             | PROTOCOL        |
 | ------------------- | --------------- |
 | 20/21(TCP)          | FTP             |
@@ -22,3 +23,9 @@
 | 512, 513, 514 (TCP) | R-services      |
 | 5985,5986           | WINRM           |
 | 135 (TCP)           | WMI             |
+
+
+- Mount windows share on windows
+```shell
+sudo mount -t cifs //10.129.7.183/David share/ -o username=david,password=gRzX7YbeTcDG7
+```

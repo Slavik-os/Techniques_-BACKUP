@@ -45,7 +45,7 @@
       "color": "OZ8CxAbztMqn5Z5RhwR8O"
     },
     {
-      "path": "Academy/nmap ( Network mapper ).md",
+      "path": "Academy/Enumeration/nmap ( Network mapper ).md",
       "color": "OZ8CxAbztMqn5Z5RhwR8O"
     },
     {
@@ -53,7 +53,7 @@
       "color": "OZ8CxAbztMqn5Z5RhwR8O"
     },
     {
-      "path": "Enumeration notes/Password attempts.md",
+      "path": "Additions/Password attempts.md",
       "color": "OZ8CxAbztMqn5Z5RhwR8O"
     },
     {
@@ -61,28 +61,120 @@
       "color": "4c2YUNvcUclqEg7Y3bde6"
     },
     {
-      "path": "Academy/Footprinting.md",
+      "path": "Academy/Enumeration/Footprinting.md",
       "color": "K54v7dcCzaVDj1N_v3X5s"
     },
     {
-      "path": "Boxes/Assets",
+      "path": "Academy/Enumeration/Information Gathering.md",
       "color": "TqW5-Rwbz1t7pLkvO4UIC"
     },
     {
-      "path": "Academy/Information Gathering.md",
-      "color": "K54v7dcCzaVDj1N_v3X5s"
-    },
-    {
-      "path": "Academy/Vulnerability Assessment.md",
-      "color": "OZ8CxAbztMqn5Z5RhwR8O"
-    },
-    {
-      "path": "Academy/File transfers.md",
+      "path": "Academy/Offensive/File transfers.md",
       "color": "K54v7dcCzaVDj1N_v3X5s"
     },
     {
       "path": "Academy",
       "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    },
+    {
+      "path": "Academy/Offensive/Password attacks.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Offensive/Rev Shells.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Offensive/Metasploit Framework.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Offensive/Attacking Common Services.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Additions/Usefull Commands.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/Enumeration",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/Offensive",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory",
+      "color": "MU7VYS6-zHmrz5_RBWDU6"
+    },
+    {
+      "path": "Academy/Active Directory/Tools of the Trade.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/External Recon and Enumeration Principles.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/Active Directory/Initial Enumeration of the Domain.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/LLMNR&NBT-NS Poisoning - from Linux.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/Enumerating & Retrieving Password Policies.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/Password Spraying - Making a Target User List.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/Enumerating Security Controls.md",
+      "color": "OZ8CxAbztMqn5Z5RhwR8O"
+    },
+    {
+      "path": "Academy/Active Directory/Internal Password Spraying - from Linux.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/Internal Password Spraying - from Windows.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/LLMNR NBT-NS Poisoning - from Windows.md",
+      "color": "K54v7dcCzaVDj1N_v3X5s"
+    },
+    {
+      "path": "Academy/Active Directory/Living Off the Land.md",
+      "color": "MU7VYS6-zHmrz5_RBWDU6"
+    },
+    {
+      "path": "Academy/Active Directory/Credentialed Enumeration - from Windows.md",
+      "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    },
+    {
+      "path": "Academy/Active Directory/Credentialed Enumeration - from Linux.md",
+      "color": "TqW5-Rwbz1t7pLkvO4UIC"
+    },
+    {
+      "path": "Academy/Active Directory/Kerberos/Kerberoasting - from Linux.md",
+      "color": "4c2YUNvcUclqEg7Y3bde6"
+    },
+    {
+      "path": "Academy/Active Directory/Kerberos/Kerberoasting - from Windows.md",
+      "color": "4c2YUNvcUclqEg7Y3bde6"
+    },
+    {
+      "path": "Academy/Active Directory/ACLS/DCsync.md",
+      "color": "MU7VYS6-zHmrz5_RBWDU6"
+    },
+    {
+      "path": "Academy/Active Directory/Kerberos",
+      "color": "4c2YUNvcUclqEg7Y3bde6"
     }
   ]
 }

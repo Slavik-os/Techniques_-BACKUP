@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "ca4f740714f29a38",
+        "id": "02bbf9beb183bd69",
         "type": "tabs",
         "children": [
           {
-            "id": "8a2a1d273b40e900",
+            "id": "d55e9393c53bf25b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Network/Generale notes.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3be6f3d0782b2e94",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Academy/Passwords Attacks.md",
+                "file": "Academy/Offensive/Pivoting, Tunneling, and Port Forwarding.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -56,7 +43,15 @@
             }
           },
           {
-            "id": "f9656a1579b48edb",
+            "id": "eb4c025c156588c5",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "d27368f29b86d3ca",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -71,15 +66,7 @@
             }
           },
           {
-            "id": "eb4c025c156588c5",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
-          },
-          {
-            "id": "635a5fe1ff388622",
+            "id": "32fa8dcb7b2748a3",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -90,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 261.5024719238281
   },
   "right": {
     "id": "14ad52875fde6014",
@@ -106,11 +93,11 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Academy/Passwords Attacks.md",
+                "file": "Academy/Offensive/Pivoting, Tunneling, and Port Forwarding.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
@@ -123,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Academy/Passwords Attacks.md",
+                "file": "Academy/Offensive/Pivoting, Tunneling, and Port Forwarding.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Academy/Passwords Attacks.md"
+                "file": "Academy/Offensive/Pivoting, Tunneling, and Port Forwarding.md"
               }
             }
           },
@@ -158,13 +145,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,47 +162,54 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "3be6f3d0782b2e94",
+  "active": "d55e9393c53bf25b",
   "lastOpenFiles": [
-    "Academy/Footprinting.md",
-    "Academy/Vulnerability Assessment.md",
-    "Academy/Information Gathering.md",
-    "Academy/Introduction.md",
-    "Academy/File transfers.md",
-    "Academy/Passwords Attacks.md",
-    "Academy/Getting started.md",
-    "Academy/Metasploit Framework.md",
-    "Academy/Rev Shells.md",
-    "Academy/nmap ( Network mapper ).md",
-    "Brutforcing notes.md",
+    "Academy/Active Directory/Miscellaneous Misconfigurations.md",
+    "Academy/Active Directory/Bleeding Edge Vulnerabilities.md",
+    "Additions/Usefull Commands.md",
     "Network/Generale notes.md",
+    "Academy/Active Directory/Kerberos/\"Double Hop\" Problem.md",
+    "Academy/Active Directory/Privileged Access.md",
+    "Academy/Active Directory/Living Off the Land.md",
+    "Academy/Active Directory/Tools of the Trade.md",
+    "Academy/Active Directory/Kerberos/Kerberoasting - from Windows.md",
+    "Academy/Active Directory/Kerberos/Kerberoasting - from Linux.md",
+    "Brutforcing notes.md",
+    "Academy/Offensive/Attacking Common Services.md",
+    "Academy/Active Directory/Enumerating & Retrieving Password Policies.md",
+    "Academy/Active Directory/LLMNR NBT-NS Poisoning - from Windows.md",
+    "Academy/Active Directory/LLMNR&NBT-NS Poisoning - from Linux.md",
+    "Academy/Active Directory/Initial Enumeration of the Domain.md",
+    "Academy/Active Directory/External Recon and Enumeration Principles.md",
+    "Academy/Active Directory/Internal Password Spraying - from Linux.md",
+    "Additions/Password attempts.md",
+    "Academy/Offensive/Pivoting, Tunneling, and Port Forwarding.md",
+    "Academy/Active Directory/Kerberos",
+    "Academy/Active Directory/ACLS/ACL Abuse Tactics.md",
+    "Academy/Active Directory/ACLS/Access Control List (ACL) Abuse Primer.md",
+    "Academy/Active Directory/ACLS/ACL Enumeration.md",
+    "LFI notes.md",
+    "Weak points/Skills that needs more work.md",
+    "Academy/Active Directory/ACLS/DCsync.md",
+    "Academy/assets/Pasted image 20230321200521.png",
+    "Academy/assets/Pasted image 20230702000921.png",
+    "Academy/Active Directory/ACLS",
+    "Academy/assets/Pasted image 20230629115744.png",
+    "Pasted image 20230619120450.png",
+    "Tools",
+    "Academy/Active Directory",
+    "Academy/Offensive",
+    "Academy/Enumeration",
+    "Academy/assets/Pasted image 20230601122201.png",
+    "Academy/mimikatz.exe",
+    "Academy/mimikatz/x64/mimilib.dll",
+    "Academy/mimikatz/x64/mimikatz.exe",
+    "Academy/mimikatz/x64/mimidrv.sys",
     "Academy/assets/Pasted image 20230514111916.png",
-    "Enumeration notes/Password attempts.md",
-    "Academy/Cheat sheets/nmap.md",
-    "Enumeration notes/Usefull Commands.md",
-    "Boxes/Inject.md",
     "Academy/assets/Pasted image 20230513105008.png",
     "Academy/assets/Pasted image 20230513102210.png",
-    "VIM/Automations.md",
-    "Weak points/Skills that needs more work.md",
     "Academy/assets/Pasted image 20230503231407.png",
-    "Academy/assets/Pasted image 20230321200521.png",
     "Pasted image 20230331220501.png",
-    "Pasted image 20230331220544.png",
-    "Pasted image 20230331220501.png.md",
-    "Untitled.canvas",
-    "Academy/assets/Pasted image 20230331220452.png",
-    "Academy/assets/Pasted image 20230329110237.png",
-    "Academy/assets/Pasted image 20230329110151.png",
-    "VIM",
-    "Boxes/Assets/Pasted image 20230329110237.png.md",
-    "Boxes/Assets",
-    "Boxes",
-    "Weak points",
-    "Academy/Cheat sheets",
-    "Enumeration notes",
-    "Network",
-    "Academy/assets",
-    "Academy"
+    "Untitled.canvas"
   ]
 }

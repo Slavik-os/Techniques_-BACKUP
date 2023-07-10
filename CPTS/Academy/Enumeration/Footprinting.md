@@ -13,6 +13,7 @@
 -  <mark style="background: #FF5582A6;">What image results for us from what we do not see?</mark>
 
 1. principles
+
 | No. | principle                                                              |
 | --- | ---------------------------------------------------------------------- |
 | 1.  | There is more than meets the eye. Consider all points of view.         |
@@ -66,6 +67,7 @@ cat /etc/ftpusers
 ```
 
 - Dangerous Settings
+
 | Setting                      | Description                                                             |
 | ---------------------------- | ----------------------------------------------------------------------- |
 | anonymous_enableed=YES       | Allow anonymous login ?                                                 |
@@ -91,6 +93,7 @@ openssl s_client -connect 10.129.14.136:21 -starttls ftp
 #CIFS : Extention of samba designed by windows, communicate to older machines and pass commands through NetBIOS service, it usually connects to samba server over TCP ports , 137, 138, 139, but CIFS uses port 445.
 
 - <mark style="background: #FFB86CA6;">SMB Version, that could help identify the Windows version .</mark>
+
 | SMB VERSION | Supported                           | Featres                                                                |
 | ----------- | ----------------------------------- | ---------------------------------------------------------------------- |
 | CIFS        | Windows NT 4.0                      | Communication via NetBIOS interface                                    |
@@ -365,6 +368,7 @@ inlanefreight.com.      900     IN      SOA     ns-161.awsdns-20.com. awsdns-hos
 (.) is replaced with @ ; ns-161@awsdns-20.com (Administrator Accomunt)
 
 ## Dangerous Settings
+
 | Option          | Description                                                                    |
 | --------------- | ------------------------------------------------------------------------------ |
 | allow-query     | Defines which hosts are allowed to send requests to the DNS server.            |
@@ -514,6 +518,7 @@ Metasploit use auxiliary/scanner/ipmi/ipmi_version
 ```
 
 ### Default passwords
+
 | Product         | Username      | Password                                                                  |
 | --------------- | ------------- | ------------------------------------------------------------------------- |
 | Dell iDRAC      | root          | calvin                                                                    |

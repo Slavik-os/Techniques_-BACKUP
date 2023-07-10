@@ -1,4 +1,4 @@
--   Network and infrastructure security
+z-   Network and infrastructure security
 -   Application security
 -   Security testing
 -   Systems auditing
@@ -40,7 +40,7 @@ Projects/
 # TOP 10 OWASP (open source web applications security project)
 
 - Most of our assesments would be arround #OWASP 10, not nessesarily but commenly.
-- 
+
  | NUMBER | CATEGORY                                    | DESCRIPTION                                                                                                                                                                                                                                                                                  |
  | ------ | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
  | 1.     | Broken access control                       | Resctrictions are not emplimented, users can access other users data, view sensitive data,...etc                                                                                                                                                                                             |
@@ -58,6 +58,7 @@ Projects/
 # Uploading Web shell
 
 Default webroots to upload web shell into
+
 | Web Server | Default Webroot        |
 | ---------- | ---------------------- |
 | Apache     | /var/www/html/         |
